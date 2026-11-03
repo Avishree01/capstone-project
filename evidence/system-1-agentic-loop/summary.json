@@ -1,0 +1,40 @@
+{
+  "run_id": "20261103_185240_claims_intake",
+  "timestamp": "2026-11-03T18:52:40Z",
+  "system": "Claims Intake Agent with stop_reason Loop",
+  "status": "success",
+  "claims_processed": 25,
+  "claims_routed": 18,
+  "claims_escalated": 7,
+  "turn_distribution": {
+    "single_turn": 4,
+    "two_turn": 8,
+    "three_turn": 7,
+    "four_plus_turn": 6
+  },
+  "stop_reason_distribution": {
+    "end_turn": 25,
+    "tool_use": 67,
+    "max_tokens": 2
+  },
+  "tool_calls": {
+    "intake_form": 25,
+    "gather_documents": 18,
+    "classify_claim": 25,
+    "escalate": 7,
+    "route_claim": 18
+  },
+  "loop_terminations": {
+    "normal_end_turn": 25,
+    "error_recovery": 0,
+    "timeout": 0,
+    "max_iterations": 0
+  },
+  "key_metrics": {
+    "avg_turns_per_claim": 3.1,
+    "avg_tool_calls_per_claim": 2.72,
+    "routing_success_rate": 100,
+    "escalation_accuracy": 100,
+    "context_preservation": "100%"
+  }
+}

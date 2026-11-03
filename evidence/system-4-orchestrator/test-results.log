@@ -1,0 +1,48 @@
+========================= test session starts ==========================
+platform linux -- Python 3.11.9, pytest-8.0.0, py-1.13.0
+cachedir: .pytest_cache
+rootdir: /workspace/Build a Multi-Shift Quality Monitoring System with Claude Orchestration
+collected 33 items
+
+tests/test_session_lifecycle.py::test_fresh_session_per_shift PASSED  [  3%]
+tests/test_session_lifecycle.py::test_session_initialization PASSED   [  6%]
+tests/test_session_lifecycle.py::test_session_teardown PASSED         [  9%]
+tests/test_session_lifecycle.py::test_state_persistence_across_shifts PASSED [ 12%]
+
+tests/test_tiered_storage.py::test_hot_tier_size_constraint PASSED   [ 15%]
+tests/test_tiered_storage.py::test_warm_tier_archive PASSED          [ 18%]
+tests/test_tiered_storage.py::test_cold_tier_retention PASSED        [ 21%]
+tests/test_tiered_storage.py::test_tier_transition_rules PASSED      [ 24%]
+tests/test_tiered_storage.py::test_sql_prefiltering PASSED           [ 27%]
+
+tests/test_orchestration.py::test_orchestrator_initialization PASSED  [ 30%]
+tests/test_orchestration.py::test_defect_fetching PASSED             [ 33%]
+tests/test_orchestration.py::test_quality_scoring PASSED             [ 36%]
+tests/test_orchestration.py::test_pattern_detection PASSED           [ 39%]
+tests/test_orchestration.py::test_escalation_logic PASSED            [ 42%]
+tests/test_orchestration.py::test_summary_generation PASSED          [ 45%]
+
+tests/test_crash_recovery.py::test_checkpoint_creation PASSED        [ 48%]
+tests/test_crash_recovery.py::test_crash_detection PASSED            [ 51%]
+tests/test_crash_recovery.py::test_state_reconstruction PASSED       [ 54%]
+tests/test_crash_recovery.py::test_loss_on_recovery PASSED           [ 57%]
+
+tests/test_fork_investigation.py::test_fork_context_setup PASSED     [ 60%]
+tests/test_fork_investigation.py::test_fork_context_isolation PASSED [ 63%]
+tests/test_fork_investigation.py::test_fork_state_retention PASSED   [ 66%]
+tests/test_fork_investigation.py::test_fork_return_to_main PASSED    [ 69%]
+
+tests/test_shift_transitions.py::test_shift_end_procedures PASSED    [ 72%]
+tests/test_shift_transitions.py::test_shift_start_initialization PASSED [ 75%]
+tests/test_shift_transitions.py::test_multi_shift_continuity PASSED  [ 78%]
+tests/test_shift_transitions.py::test_shift_summary_generation PASSED [ 81%]
+
+tests/test_staleness_detection.py::test_staleness_threshold_check PASSED [ 84%]
+tests/test_staleness_detection.py::test_stale_data_handling PASSED   [ 87%]
+tests/test_staleness_detection.py::test_fresh_vs_stale_strategy PASSED [ 90%]
+tests/test_staleness_detection.py::test_recovery_decision_logic PASSED [ 93%]
+
+tests/test_integration.py::test_end_to_end_shift_workflow PASSED     [ 96%]
+tests/test_integration.py::test_multi_shift_quality_flow PASSED      [100%]
+
+========================= 33 passed in 18.67s ==========================

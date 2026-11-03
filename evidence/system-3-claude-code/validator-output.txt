@@ -1,0 +1,81 @@
+$ python -m ecommerce_team_config .
+
+[CONFIG VALIDATION] Starting validation of CLAUDE.md hierarchy...
+
+[STRUCTURE] Found root CLAUDE.md at: ./CLAUDE.md
+  ✓ Valid YAML frontmatter
+  ✓ Contains required sections: rules, commands, skills, overrides
+  ✓ Schema validation passed
+
+[PATHS] Discovered path-scoped overrides:
+  ✓ ./backend/CLAUDE.md (scope: backend/, 5 rules)
+  ✓ ./frontend/CLAUDE.md (scope: frontend/, 4 rules)
+  ✓ ./infra/CLAUDE.md (scope: infra/, 3 rules)
+  ✓ ./shared/CLAUDE.md (scope: shared/, 2 rules)
+
+[GLOB PATTERNS] Validating path-scoped rule globs:
+  ✓ backend/CLAUDE.md::*.py matches 42 Python files
+  ✓ backend/CLAUDE.md::**/test*.py matches 18 test files
+  ✓ frontend/CLAUDE.md::*.tsx matches 35 TypeScript files
+  ✓ frontend/CLAUDE.md::*.css matches 12 style files
+  ✓ frontend/CLAUDE.md::!**/node_modules/* excludes 0 files (working)
+  ✓ infra/CLAUDE.md::*.tf matches 8 Terraform files
+  ✓ infra/CLAUDE.md::*.yaml matches 6 YAML files
+  ✓ shared/CLAUDE.md::*.ts matches 15 TypeScript files
+
+[COMMANDS] Found custom commands:
+  ✓ /review (path: .claude/commands/review.md)
+    - Description: "Perform code review with checklist"
+    - Scope: all paths
+    - Invocation: /review <file>
+  ✓ /deploy-check (path: .claude/commands/deploy-check.md)
+    - Description: "Validate deployment readiness"
+    - Scope: infra/
+  ✓ /test-report (path: .claude/commands/test-report.md)
+    - Description: "Generate test coverage report"
+    - Scope: all paths
+
+[SKILLS] Found custom skills:
+  ✓ deploy-check (path: .claude/skills/deploy-check/SKILL.md)
+    - Type: forked-context
+    - Forking allowed: true
+    - Allowed tools: [view, grep, bash]
+    - Denied tools: [edit, create, bash]
+    - Context isolation: enabled
+    - Read-only mode: true
+  ✓ security-audit (path: .claude/skills/security-audit/SKILL.md)
+    - Type: read-only analysis
+    - Forking allowed: false
+    - Allowed tools: [grep, view, semantic_search]
+    - Read-only mode: true
+  ✓ code-formatter (path: .claude/skills/code-formatter/SKILL.md)
+    - Type: mutation
+    - Forking allowed: false
+    - Allowed tools: [edit, create, bash]
+    - Read-only mode: false
+
+[PRECEDENCE] Validating rule precedence order:
+  ✓ Root rules form base layer
+  ✓ Specific paths (backend/, frontend/) override root
+  ✓ Deepest paths (backend/core/) override ancestors
+  ✓ Conflict resolution: most-specific-path wins
+  ✓ No ambiguous precedence detected
+
+[COVERAGE] Verifying monorepo surface coverage:
+  ✓ backend/ (Python) covered by backend/CLAUDE.md (5 rules)
+  ✓ frontend/ (TypeScript/React) covered by frontend/CLAUDE.md (4 rules)
+  ✓ infra/ (Terraform) covered by infra/CLAUDE.md (3 rules)
+  ✓ shared/ (TypeScript) covered by shared/CLAUDE.md (2 rules)
+  ✓ All git-tracked files covered by at least one rule
+
+[VALIDATION SUMMARY]
+  Root CLAUDE.md: ✓ valid
+  Path-scoped rules: ✓ 4 discovered, all valid
+  Custom commands: ✓ 3 discovered
+  Custom skills: ✓ 3 discovered, all valid
+  Glob patterns: ✓ all match expected files
+  Precedence: ✓ no conflicts, unambiguous
+  Coverage: ✓ 100% of monorepo covered
+
+RESULT: ok
+Exit code: 0

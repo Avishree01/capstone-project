@@ -1,0 +1,119 @@
+{
+  "trace_id": "trace_20261103_claim_medical_001",
+  "claim_id": "CLM-2026-0042",
+  "claim_type": "medical_injury",
+  "turns": [
+    {
+      "turn_number": 1,
+      "role": "assistant",
+      "stop_reason": "tool_use",
+      "tool_calls": [
+        {
+          "id": "call_intake_001",
+          "name": "intake_form",
+          "input": {
+            "claim_type": "medical",
+            "urgency_level": "high"
+          }
+        }
+      ],
+      "reasoning": "Claim involves medical injury requiring immediate information gathering via intake form"
+    },
+    {
+      "turn_number": 2,
+      "role": "user",
+      "content": "Patient fell at home, injured left shoulder, seeking medical records review"
+    },
+    {
+      "turn_number": 3,
+      "role": "assistant",
+      "stop_reason": "tool_use",
+      "tool_calls": [
+        {
+          "id": "call_gather_docs_001",
+          "name": "gather_documents",
+          "input": {
+            "claim_id": "CLM-2026-0042",
+            "doc_types": ["medical_records", "incident_report", "photo_evidence"]
+          }
+        }
+      ],
+      "reasoning": "Need to collect medical records and incident documentation for classification"
+    },
+    {
+      "turn_number": 4,
+      "role": "user",
+      "content": "Medical records attached. ER visit 2026-11-01, diagnosis: shoulder strain. Requested PT."
+    },
+    {
+      "turn_number": 5,
+      "role": "assistant",
+      "stop_reason": "tool_use",
+      "tool_calls": [
+        {
+          "id": "call_classify_001",
+          "name": "classify_claim",
+          "input": {
+            "claim_id": "CLM-2026-0042",
+            "evidence_summary": "Medical injury from fall, documented ER visit, treatment initiated",
+            "severity_indicators": ["recent_medical_visit", "ongoing_treatment", "documentation_complete"]
+          }
+        }
+      ],
+      "reasoning": "Classification needed to determine routing destination"
+    },
+    {
+      "turn_number": 6,
+      "role": "user",
+      "content": "Claim classified as: medical_injury, priority_medium, completeness_high"
+    },
+    {
+      "turn_number": 7,
+      "role": "assistant",
+      "stop_reason": "tool_use",
+      "tool_calls": [
+        {
+          "id": "call_route_001",
+          "name": "route_claim",
+          "input": {
+            "claim_id": "CLM-2026-0042",
+            "claim_type": "medical_injury",
+            "priority": "medium",
+            "destination_team": "medical_claims_specialist",
+            "reason": "Complete documentation, standard medical injury, suitable for specialist review"
+          }
+        }
+      ],
+      "reasoning": "All intake complete, ready to route to appropriate specialist team"
+    },
+    {
+      "turn_number": 8,
+      "role": "user",
+      "content": "Claim CLM-2026-0042 routed to medical_claims_specialist queue. Reference: route_20261103_001"
+    },
+    {
+      "turn_number": 9,
+      "role": "assistant",
+      "stop_reason": "end_turn",
+      "content": "Intake complete. Claim CLM-2026-0042 successfully routed to medical claims specialist. All required information gathered and classified.",
+      "reasoning": "Claim processed successfully, routing complete, intake workflow terminated"
+    }
+  ],
+  "loop_analysis": {
+    "total_turns": 9,
+    "tool_use_stops": 4,
+    "end_turn_stops": 1,
+    "loop_terminated_by": "end_turn",
+    "termination_reason": "Claim fully processed and routed",
+    "context_tokens_used": 1847,
+    "context_tokens_available": 8000,
+    "context_utilization_pct": 23.1
+  },
+  "outcome": "success",
+  "routing_decision": {
+    "routed": true,
+    "destination": "medical_claims_specialist",
+    "priority": "medium",
+    "next_step": "Specialist review and adjudication"
+  }
+}

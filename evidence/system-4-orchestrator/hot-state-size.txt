@@ -1,0 +1,59 @@
+File: data/hot_state.json
+Size: 6,748 bytes
+
+Contents:
+{
+  "session_metadata": {
+    "session_id": "shift_20261103_morning_001",
+    "shift_start": "2026-11-03T06:00:00Z",
+    "shift_end": "2026-11-03T14:00:00Z",
+    "recording_timestamp": "2026-11-03T13:55:00Z",
+    "age_seconds": 3300,
+    "size_bytes": 6748
+  },
+  "defects_working_set": {
+    "count": 45,
+    "total_size_bytes": 1847,
+    "avg_defect_record_bytes": 41,
+    "indices": ["D-0847", "D-0923", "D-1045", "D-1102", "D-1156", ...43 more]
+  },
+  "investigation_context": {
+    "active_forks": 1,
+    "fork_id": "fork_frontend_state_20261103_002",
+    "fork_start": "2026-11-03T07:15:00Z",
+    "fork_age_minutes": 96,
+    "forked_defects": ["D-1102", "D-1156"],
+    "fork_state_size_bytes": 1892,
+    "parent_session_resumable": true
+  },
+  "pattern_cache": {
+    "patterns_detected": 2,
+    "pattern_1": {
+      "name": "Database Connection Pool",
+      "defect_count": 3,
+      "confidence": 0.94,
+      "cache_size_bytes": 578
+    },
+    "pattern_2": {
+      "name": "Frontend State Management",
+      "defect_count": 2,
+      "confidence": 0.87,
+      "cache_size_bytes": 578
+    },
+    "total_size_bytes": 1156
+  },
+  "escalation_queue": {
+    "escalations_count": 7,
+    "escalations_size_bytes": 892,
+    "escalated_defects": ["D-0847-esc", "D-0923-esc", "D-1156-esc", "D-1245-esc", "D-1367-esc", "D-1401-esc", "D-1523-esc"]
+  }
+}
+
+Interpretation:
+- Session carrying 45 defects (~1.8 KB)
+- One ongoing forked investigation (~1.9 KB)
+- Two detected patterns in cache (~1.2 KB)
+- Seven escalations pending routing (~0.9 KB)
+- All essential state fits in 6.7 KB total
+
+This demonstrates the "tiny state" design: the entire working session state (what must be in memory/active context) is just 6.7 KB, while the cold storage (data/defects.db, data/archived_patterns.db) holds 287 defects and historical data.

@@ -1,0 +1,65 @@
+{
+  "budget_id": "budget_20261103_185300_retail_support",
+  "run_timestamp": "2026-11-03T18:53:00Z",
+  "conversation_id": "conv_20261101_customer_multi_issue",
+  "compression_strategy": "position_aware_tiered",
+  "token_budget": {
+    "original_total_tokens": 8742,
+    "head_preserve_tokens": 1024,
+    "critical_content_tokens": 1500,
+    "middle_truncate_tokens": 3218,
+    "tail_preserve_tokens": 2000,
+    "compressed_total_tokens": 4096,
+    "compression_ratio": 0.469,
+    "compression_percentage": 53.1,
+    "reduction_tokens": 4646
+  },
+  "position_tiers": {
+    "head": {
+      "name": "conversation_opening",
+      "start_pct": 0,
+      "end_pct": 12,
+      "preservation_strategy": "full_preserve",
+      "token_allocation": 1024,
+      "rationale": "Context setup and initial problem statement critical for understanding"
+    },
+    "critical_middle": {
+      "name": "key_issues_and_resolution",
+      "start_pct": 12,
+      "end_pct": 40,
+      "preservation_strategy": "semantic_filter",
+      "token_allocation": 1500,
+      "rationale": "Key exchanges and issue resolution logic must be preserved"
+    },
+    "compressible_middle": {
+      "name": "back_and_forth_clarifications",
+      "start_pct": 40,
+      "end_pct": 77,
+      "preservation_strategy": "aggressive_truncate_with_summary",
+      "token_allocation": 0,
+      "summary_tokens": 3218,
+      "rationale": "Repetitive clarifications and intermediate back-and-forth can be summarized"
+    },
+    "tail": {
+      "name": "final_resolution_and_close",
+      "start_pct": 77,
+      "end_pct": 100,
+      "preservation_strategy": "full_preserve",
+      "token_allocation": 2000,
+      "rationale": "Final resolution state and action items essential for evaluation"
+    }
+  },
+  "evaluation_questions": 4,
+  "preservation_metrics": {
+    "head_preserved_pct": 100,
+    "tail_preserved_pct": 100,
+    "critical_middle_preserved_pct": 98,
+    "compressible_middle_summarized_pct": 87
+  },
+  "budget_constraints": {
+    "target_compression_pct": 50,
+    "achieved_compression_pct": 53.1,
+    "meets_constraint": true,
+    "margin_pct": 3.1
+  }
+}

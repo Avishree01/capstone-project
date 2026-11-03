@@ -1,0 +1,125 @@
+.claude/
+├── CLAUDE.md (root configuration)
+├── commands/
+│   ├── review.md
+│   ├── deploy-check.md
+│   └── test-report.md
+├── rules/
+│   ├── base-rules.md (glob: **/*.py, **/*.ts, **/*.tsx)
+│   ├── python-rules.md (glob: **/*.py)
+│   ├── typescript-rules.md (glob: **/*.ts, **/*.tsx)
+│   ├── test-rules.md (glob: **/test_*.py, **/*.test.ts)
+│   └── deployment-rules.md (glob: infra/**)
+└── skills/
+    ├── deploy-check/
+    │   ├── SKILL.md (context: fork, read-only)
+    │   ├── allowed-tools: [view, grep, bash]
+    │   ├── denied-tools: [edit, create]
+    │   └── description: "Validate deployment readiness"
+    ├── security-audit/
+    │   ├── SKILL.md (context: same, read-only)
+    │   ├── allowed-tools: [grep, view, semantic_search]
+    │   └── description: "Security vulnerability analysis"
+    └── code-formatter/
+        ├── SKILL.md (context: same, mutation)
+        ├── allowed-tools: [edit, create, bash]
+        └── description: "Code formatting and linting"
+
+backend/CLAUDE.md (scope: backend/)
+├── imports: ../CLAUDE.md
+├── rules: [python-strict, test-coverage-required]
+├── paths:
+│   - glob: *.py
+│     rule: python-strict
+│   - glob: test_*.py
+│     rule: python-test
+├── context: same
+
+frontend/CLAUDE.md (scope: frontend/)
+├── imports: ../CLAUDE.md
+├── rules: [typescript-strict, react-best-practices]
+├── paths:
+│   - glob: *.tsx
+│     rule: react-best-practices
+│   - glob: *.css
+│     rule: css-best-practices
+├── context: same
+
+infra/CLAUDE.md (scope: infra/)
+├── imports: ../CLAUDE.md
+├── rules: [terraform-format, deployment-checklist]
+├── paths:
+│   - glob: *.tf
+│     rule: terraform-format
+│   - glob: *.yaml
+│     rule: yaml-format
+├── skills: [deploy-check]
+├── context: same
+
+shared/CLAUDE.md (scope: shared/)
+├── imports: ../CLAUDE.md
+├── rules: [typescript-shared-types]
+├── paths:
+│   - glob: *.ts
+│     rule: typescript-shared-types
+├── context: same
+
+Root CLAUDE.md Imports:
+  - File: ./CLAUDE.md
+  - Imported by: backend/CLAUDE.md, frontend/CLAUDE.md, infra/CLAUDE.md, shared/CLAUDE.md
+  - Precedence order: root → specific-path (most-specific wins)
+
+.claude/commands/review.md
+  name: /review
+  description: Perform code review with checklist
+  scope: all
+  parameters: 
+    - file: (required) file path to review
+    - type: (optional) review type (full, quick, security)
+  execution: Analyzes file for logic errors, style compliance, testing
+
+.claude/commands/deploy-check.md
+  name: /deploy-check
+  description: Validate deployment readiness
+  scope: infra/
+  parameters:
+    - environment: (required) deployment target
+    - dry-run: (optional) perform dry-run validation
+  execution: Verifies infrastructure, secrets, permissions
+
+.claude/skills/deploy-check/SKILL.md
+  name: deploy-check
+  description: Deployment readiness validation skill
+  type: forked-context
+  context: fork
+  read-only: true
+  allowed-tools:
+    - view (read file contents)
+    - grep (search file contents)
+    - bash (execute safe shell commands)
+  denied-tools:
+    - edit (prevent infrastructure changes)
+    - create (prevent new infrastructure)
+    - git (prevent version control)
+  fork-reason: "Isolate deployment validation in separate context to prevent accidental changes"
+  fork-scope: infrastructure
+  fork-state: "Load only deployment-related files and terraform state"
+
+Rule Hierarchy Example - backend/:
+  1. Root rule (base-rules.md): Apply to all code
+  2. Backend rule (backend/CLAUDE.md::python-strict): Override for *.py files
+  3. Test rule (backend/CLAUDE.md::python-test): Override for test_*.py files
+  Precedence: most-specific (test_*.py) > more-specific (*.py) > general (root)
+
+Glob Pattern Coverage:
+  backend/:
+    - backend/CLAUDE.md::*.py → 42 Python files covered
+    - backend/CLAUDE.md::test_*.py → 18 test files covered
+  frontend/:
+    - frontend/CLAUDE.md::*.tsx → 35 TypeScript React files covered
+    - frontend/CLAUDE.md::*.css → 12 CSS files covered
+  infra/:
+    - infra/CLAUDE.md::*.tf → 8 Terraform files covered
+    - infra/CLAUDE.md::*.yaml → 6 configuration files covered
+  shared/:
+    - shared/CLAUDE.md::*.ts → 15 TypeScript files covered
