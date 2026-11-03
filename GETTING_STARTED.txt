@@ -1,0 +1,174 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    CAPSTONE PROJECT - GETTING STARTED                      ║
+║                                                                            ║
+║              Comprehensive AI System Implementation & Verification          ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📍 YOU ARE HERE: /workspaces/capstone-project/
+
+🎯 YOUR MISSION:
+   1. Set up 4 AI/ML systems from course projects
+   2. Run 128 tests across all systems  
+   3. Gather evidence artifacts
+   4. Write a reflection brief citing the evidence
+
+✅ WHAT'S READY:
+   ✓ Setup & automation scripts (run_capstone.py, setup_helper.py)
+   ✓ Complete documentation (4 guides + templates)
+   ✓ Python 3.14.2 environment
+   ✓ Git configured
+
+❌ WHAT'S MISSING:
+   ✗ Course materials (the 4 systems to test)
+   ✗ ANTHROPIC_API_KEY (optional, but recommended)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION FILES (Read in This Order):
+
+1. README_CAPSTONE.md (THIS IS YOUR START)
+   └─ Overview of project and quick reference
+   └─ Read First: Understand what you're doing
+
+2. SETUP_INSTRUCTIONS.md  
+   └─ How to set up your workspace
+   └─ Read Before: You attempt to run anything
+
+3. EXECUTION_GUIDE.md
+   └─ 8-phase walkthrough with exact commands
+   └─ Read Before: Running the systems
+
+4. REFERENCE_GUIDE.md
+   └─ Quick commands, citations, troubleshooting
+   └─ Read During: Running systems, writing brief
+
+5. reflection-brief-template.md
+   └─ Template for your final submission
+   └─ Read After: Getting evidence artifacts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 THREE QUICK STEPS TO GET STARTED:
+
+STEP 1: Read the README
+   $ cat README_CAPSTONE.md
+   
+   Takes 5 minutes. Understand what the capstone requires.
+
+STEP 2: Check Prerequisites  
+   $ python setup_helper.py
+   
+   Verifies your environment is ready.
+
+STEP 3: Get Course Materials
+   
+   The 4 systems need to be in /workspace/ (capital W, not /workspaces/)
+   
+   These materials should be provided by:
+   - Your instructor (download link)
+   - Vocareum workspace (Cloud Resources tab)
+   - Course platform
+   
+   Once you have them, place them in /workspace/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 THE FOUR SYSTEMS (You'll test these):
+
+   System 1: Claims Intake Agent
+   ├─ Focus: stop_reason-driven control flow
+   ├─ Tests: 30
+   └─ Key Learning: How agentic loops terminate
+
+   System 2: Context Strategy  
+   ├─ Focus: Compress long conversations
+   ├─ Tests: 30
+   └─ Key Learning: Token compression while preserving answers
+
+   System 3: Claude Code Config
+   ├─ Focus: CLAUDE.md hierarchy & rules
+   ├─ Tests: 35
+   └─ Key Learning: Configuration-driven behavior
+
+   System 4: Quality Monitoring
+   ├─ Focus: Tiered storage & recovery
+   ├─ Tests: 33
+   └─ Key Learning: Stateless orchestration
+
+TOTAL: 128 tests to pass
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️  ESTIMATED TIMELINE:
+
+   Understanding (read docs):        15 min
+   Environment setup:                 5 min
+   Getting course materials:         10 min (depends on source)
+   Running all 4 systems:            20 min (includes API calls)
+   Writing reflection brief:         30 min (needs careful citations)
+   
+   TOTAL: ~80 minutes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️  TOOLS PROVIDED:
+
+   run_capstone.py
+   └─ Automation script
+   └─ Sets up venvs, installs dependencies, runs all tests
+   └─ Captures evidence to evidence/ directory
+   └─ Run once you have course materials in /workspace/
+
+   setup_helper.py
+   └─ Environment validator
+   └─ Checks Python version, API key, materials location
+   └─ Run first to diagnose any issues
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 BEFORE YOU START:
+
+   □ Have you read README_CAPSTONE.md? (5 min)
+   □ Do you know where to get course materials? (Ask instructor if unsure)
+   □ Do you have (or can you get) ANTHROPIC_API_KEY? (Optional but recommended)
+   □ Are you ready to follow the EXECUTION_GUIDE.md? (It's detailed for a reason)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 YOUR IMMEDIATE NEXT ACTION:
+
+   1. Open README_CAPSTONE.md and read the overview
+   2. Make sure you understand what the capstone requires
+   3. Follow the "Quick Start" section
+   4. Get course materials from your instructor/Vocareum
+   5. Run python run_capstone.py when ready
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 KEY POINTS TO REMEMBER:
+
+   ✓ Course materials go in /workspace/ (NOT /workspaces/)
+   ✓ Each system needs its own virtual environment
+   ✓ Your reflection brief MUST cite evidence from test runs
+   ✓ Generic answers won't pass - be specific!
+   ✓ System 2 may show "2 skipped" on first run (normal!)
+   ✓ If API key errors, check ANTHROPIC_BASE_URL for Vocareum keys
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 HELP & SUPPORT:
+
+   Quick Reference:     REFERENCE_GUIDE.md
+   Step-by-Step Guide:  EXECUTION_GUIDE.md  
+   Setup Checklist:     SETUP_INSTRUCTIONS.md
+   Troubleshooting:     See REFERENCE_GUIDE.md section "Common Issues"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 LET'S GO!
+
+   Next: cat README_CAPSTONE.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
