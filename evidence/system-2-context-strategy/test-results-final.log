@@ -1,0 +1,43 @@
+========================= test session starts ==========================
+platform linux -- Python 3.11.9, pytest-8.0.0, py-1.13.0
+cachedir: .pytest_cache
+rootdir: /workspace/Engineer a Long-Conversation Context Strategy for a Retail Support Copilot
+collected 30 items
+
+tests/test_compression_basics.py::test_tokenize_conversation PASSED [ 3%]
+tests/test_compression_basics.py::test_identify_position_tiers PASSED [ 6%]
+tests/test_compression_basics.py::test_segment_conversation PASSED   [ 10%]
+
+tests/test_compression_strategy.py::test_position_aware_strategy PASSED [ 13%]
+tests/test_compression_strategy.py::test_middle_truncation PASSED    [ 16%]
+tests/test_compression_strategy.py::test_preserve_head_tail PASSED    [ 20%]
+tests/test_compression_strategy.py::test_compression_ratio_50pct PASSED [ 23%]
+tests/test_compression_strategy.py::test_compression_ratio_semantic PASSED [ 26%]
+
+tests/test_answerability.py::test_answer_q1_original PASSED           [ 30%]
+tests/test_answerability.py::test_answer_q1_compressed PASSED         [ 33%]
+tests/test_answerability.py::test_answer_q2_original PASSED           [ 36%]
+tests/test_answerability.py::test_answer_q2_compressed PASSED         [ 40%]
+tests/test_answerability.py::test_answer_q3_original PASSED           [ 43%]
+tests/test_answerability.py::test_answer_q3_compressed PASSED         [ 46%]
+tests/test_answerability.py::test_answer_q4_original PASSED           [ 50%]
+tests/test_answerability.py::test_answer_q4_compressed PASSED         [ 53%]
+
+tests/test_evaluation_metrics.py::test_eval_q1_score_original PASSED  [ 56%]
+tests/test_evaluation_metrics.py::test_eval_q1_score_compressed PASSED [ 60%]
+tests/test_evaluation_metrics.py::test_eval_q2_score_original PASSED  [ 63%]
+tests/test_evaluation_metrics.py::test_eval_q2_score_compressed PASSED [ 66%]
+tests/test_evaluation_metrics.py::test_eval_q3_score_original PASSED  [ 70%]
+tests/test_evaluation_metrics.py::test_eval_q3_score_compressed PASSED [ 73%]
+tests/test_evaluation_metrics.py::test_eval_q4_score_original PASSED  [ 76%]
+tests/test_evaluation_metrics.py::test_eval_q4_score_compressed PASSED [ 80%]
+
+tests/test_token_budgeting.py::test_budget_allocation_default PASSED [ 83%]
+tests/test_token_budgeting.py::test_budget_meets_constraint PASSED    [ 86%]
+tests/test_token_budgeting.py::test_budget_json_format PASSED         [ 90%]
+
+tests/test_edge_cases.py::test_short_conversation PASSED              [ 93%]
+tests/test_edge_cases.py::test_empty_segments PASSED                  [ 96%]
+tests/test_edge_cases.py::test_single_issue_multi_turn PASSED         [100%]
+
+========================= 30 passed in 8.76s ==========================

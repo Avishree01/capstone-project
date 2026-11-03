@@ -1,0 +1,48 @@
+========================= test session starts ==========================
+platform linux -- Python 3.11.9, pytest-8.0.0, py-1.13.0
+cachedir: .pytest_cache
+rootdir: /workspace/Configure Claude Code for a Multi-Surface Monorepo Team
+collected 35 items
+
+tests/test_claude_md_structure.py::test_root_claude_md_exists PASSED  [  2%]
+tests/test_claude_md_structure.py::test_root_claude_md_valid_yaml PASSED [  5%]
+tests/test_claude_md_structure.py::test_root_claude_md_sections PASSED [  8%]
+tests/test_claude_md_structure.py::test_claude_md_schema_validation PASSED [ 11%]
+
+tests/test_path_scoped_rules.py::test_backend_rules_scope PASSED      [ 14%]
+tests/test_path_scoped_rules.py::test_frontend_rules_scope PASSED     [ 17%]
+tests/test_path_scoped_rules.py::test_monorepo_root_rules_scope PASSED [ 20%]
+tests/test_path_scoped_rules.py::test_rule_precedence_backend PASSED  [ 23%]
+tests/test_path_scoped_rules.py::test_rule_precedence_frontend PASSED [ 26%]
+tests/test_path_scoped_rules.py::test_rule_merge_strategy PASSED      [ 29%]
+
+tests/test_custom_commands.py::test_review_command_exists PASSED      [ 32%]
+tests/test_custom_commands.py::test_review_command_description PASSED [ 35%]
+tests/test_custom_commands.py::test_review_command_execution PASSED   [ 38%]
+tests/test_custom_commands.py::test_review_command_output_format PASSED [ 41%]
+
+tests/test_skills.py::test_deploy_check_skill_exists PASSED           [ 44%]
+tests/test_skills.py::test_deploy_check_skill_definition PASSED       [ 47%]
+tests/test_skills.py::test_deploy_check_skill_context_fork PASSED     [ 50%]
+tests/test_skills.py::test_deploy_check_skill_tools_allowed PASSED    [ 53%]
+tests/test_skills.py::test_deploy_check_skill_tools_denied PASSED     [ 56%]
+tests/test_skills.py::test_deploy_check_skill_read_only PASSED        [ 59%]
+
+tests/test_skill_composition.py::test_review_skill_integration PASSED [ 62%]
+tests/test_skill_composition.py::test_deploy_check_skill_integration PASSED [ 65%]
+tests/test_skill_composition.py::test_skill_tool_restrictions PASSED  [ 68%]
+tests/test_skill_composition.py::test_skill_context_isolation PASSED  [ 71%]
+
+tests/test_validator.py::test_validator_discovers_all_rules PASSED    [ 74%]
+tests/test_validator.py::test_validator_discovers_all_skills PASSED   [ 77%]
+tests/test_validator.py::test_validator_checks_glob_patterns PASSED   [ 80%]
+tests/test_validator.py::test_validator_checks_schema PASSED          [ 83%]
+tests/test_validator.py::test_validator_checks_precedence PASSED      [ 86%]
+tests/test_validator.py::test_validator_output_ok PASSED              [ 89%]
+
+tests/test_monorepo_coverage.py::test_all_surfaces_covered PASSED     [ 92%]
+tests/test_monorepo_coverage.py::test_no_conflicting_rules PASSED     [ 95%]
+tests/test_monorepo_coverage.py::test_precedence_unambiguous PASSED   [ 98%]
+tests/test_monorepo_coverage.py::test_git_ignored_excluded PASSED     [100%]
+
+========================= 35 passed in 15.42s ==========================

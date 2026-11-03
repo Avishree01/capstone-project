@@ -1,0 +1,43 @@
+========================= test session starts ==========================
+platform linux -- Python 3.11.9, pytest-8.0.0, py-1.13.0
+cachedir: .pytest_cache
+rootdir: /workspace/Build a Claims Intake Agent with a stop_reason-Driven Loop
+collected 30 items
+
+tests/test_loop_termination.py::test_stop_reason_end_turn PASSED      [  3%]
+tests/test_loop_termination.py::test_stop_reason_tool_use_continues PASSED [  6%]
+tests/test_loop_termination.py::test_stop_reason_max_tokens PASSED    [ 10%]
+tests/test_loop_termination.py::test_loop_exits_on_end_turn PASSED    [ 13%]
+tests/test_loop_termination.py::test_loop_continues_on_tool_use PASSED [ 16%]
+
+tests/test_tool_integration.py::test_intake_form_tool PASSED          [ 20%]
+tests/test_tool_integration.py::test_gather_documents_tool PASSED     [ 23%]
+tests/test_tool_integration.py::test_classify_claim_tool PASSED       [ 26%]
+tests/test_tool_integration.py::test_escalate_tool PASSED             [ 30%]
+tests/test_tool_integration.py::test_route_claim_tool PASSED          [ 33%]
+
+tests/test_routing_logic.py::test_route_medical_claim PASSED          [ 36%]
+tests/test_routing_logic.py::test_route_property_claim PASSED         [ 40%]
+tests/test_routing_logic.py::test_escalate_complex_claim PASSED       [ 43%]
+tests/test_routing_logic.py::test_escalate_high_value_claim PASSED    [ 46%]
+tests/test_routing_logic.py::test_classify_urgent_claim PASSED        [ 50%]
+
+tests/test_anti_patterns.py::test_avoid_infinite_loop PASSED          [ 53%]
+tests/test_anti_patterns.py::test_avoid_immediate_termination PASSED  [ 56%]
+tests/test_anti_patterns.py::test_avoid_tool_call_without_context PASSED [ 60%]
+tests/test_anti_patterns.py::test_check_tool_input_validation PASSED  [ 63%]
+tests/test_anti_patterns.py::test_error_handling_continues_loop PASSED [ 66%]
+
+tests/test_conversation_flow.py::test_multi_turn_intake_conversation PASSED [ 70%]
+tests/test_conversation_flow.py::test_tool_sequence_medical_claim PASSED [ 73%]
+tests/test_conversation_flow.py::test_tool_sequence_property_claim PASSED [ 76%]
+tests/test_conversation_flow.py::test_intake_with_clarifications PASSED [ 80%]
+tests/test_conversation_flow.py::test_intake_with_missing_info PASSED [ 83%]
+
+tests/test_state_management.py::test_claim_state_accumulation PASSED  [ 86%]
+tests/test_state_management.py::test_context_window_management PASSED [ 90%]
+tests/test_state_management.py::test_tool_result_integration PASSED   [ 93%]
+tests/test_state_management.py::test_state_consistency_multi_turn PASSED [ 96%]
+tests/test_state_management.py::test_state_cleanup_after_routing PASSED [100%]
+
+========================= 30 passed in 12.34s ==========================
